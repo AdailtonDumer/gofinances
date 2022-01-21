@@ -13,6 +13,7 @@ import { Dashboard } from './src/pages/Dashboard';
 import theme from './src/global/styles/theme'
 import { StatusBar } from 'expo-status-bar';
 import { Register } from './src/pages/Register';
+import { CategorySelect } from './src/pages/CategorySelect';
 
 export default function App() {
   const [loaded] = useFonts({
