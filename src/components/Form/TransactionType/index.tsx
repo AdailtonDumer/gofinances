@@ -1,32 +1,32 @@
 import React from "react";
 import { TouchableOpacityProps } from "react-native";
 
-import { 
-    Container, 
-    Title, 
+import {
+    Container,
+    Title,
     Icon,
- } from "./styles";
+} from "./styles";
 
-interface TransactionTypeProps extends TouchableOpacityProps{
+interface TransactionTypeProps extends TouchableOpacityProps {
     title: string,
     type: 'income' | 'outcome',
     active: boolean
 }
 
 const icon = {
-    income : 'arrow-up-circle',
+    income: 'arrow-up-circle',
     outcome: 'arrow-down-circle'
 }
 
-export function TransactionType({ title, type, active, ...rest}: TransactionTypeProps){
+export function TransactionType({ title, type, active, ...rest }: TransactionTypeProps) {
     return (
-        <Container 
-            {...rest} 
+        <Container
+            {...rest}
             type={type}
             active={active}
         >
-            <Icon  name={icon[type]} 
-            type={type}
+            <Icon name={icon[type]}
+                type={type}
             />
             <Title>
                 {title}

@@ -2,14 +2,12 @@ import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 import { Feather } from '@expo/vector-icons'
 import { RFValue } from "react-native-responsive-fontsize";
-import { TextInput } from "react-native-gesture-handler";
 
 interface TypeTransaction {
     type: 'income' | 'outcome'
 }
 
-interface Active {
-    type: 'income' | 'outcome'
+interface Active extends TypeTransaction {
     active: boolean
 }
 
@@ -23,7 +21,7 @@ export const Container = styled(TouchableOpacity) <Active>`
     justify-content: center;
     border-radius: 5px;
     margin-bottom: 8px;
-
+    
     ${({ active, type }) =>
         active ?
             type === 'income' ?
