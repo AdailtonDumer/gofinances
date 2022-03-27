@@ -7,13 +7,11 @@ import {
   Poppins_700Bold
 } from '@expo-google-fonts/poppins'
 import AppLoading from 'expo-app-loading';
-
-
-import { Dashboard } from './src/pages/Dashboard';
-import theme from './src/global/styles/theme'
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { Register } from './src/pages/Register';
-import { CategorySelect } from './src/pages/CategorySelect';
+
+import theme from './src/global/styles/theme'
+import { AppRoutes } from './src/routes/app.routes';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,13 +20,15 @@ export default function App() {
     Poppins_700Bold
   });
 
-  if(!loaded)
-    return <AppLoading/>
+  if (!loaded)
+    return <AppLoading />
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style='light' translucent/>
-      <Register />
+      <StatusBar style='light' translucent />
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
